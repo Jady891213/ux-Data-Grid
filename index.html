@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design System Comparison Lab</title>
+    <title>Enterprise Spreadsheet Batch Engine</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Fira+Code:wght@400;500&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -14,16 +14,25 @@
             overflow: hidden;
         }
         .font-mono { font-family: 'Fira Code', monospace; }
-        .font-serif { font-family: 'Playfair Display', serif; }
         
-        /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        /* Interactive spreadsheet cursor */
+        .cursor-cell { cursor: cell; }
+        
+        /* Range selection usually disables standard text selection while dragging */
+        .select-none { user-select: none; -webkit-user-select: none; }
+
+        /* Smooth scrollbar styling */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: rgba(128,128,128,0.2); border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: rgba(128,128,128,0.4); }
 
-        /* Animation for theme swapping */
-        * { transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease; }
+        /* Animation for transitions */
+        * { transition: background-color 0.2s ease, border-color 0.2s ease; }
+        
+        /* Ensure selection edges are crisp and don't lag behind drag */
+        .z-30 { transition: none !important; }
+        .z-50 { transition: none !important; }
     </style>
     <script type="importmap">
 {
